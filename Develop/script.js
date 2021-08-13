@@ -6,6 +6,7 @@ var special = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
 var chars = "";
 
 var generatePassword = function() {
+    chars = lower;
     var passwordLenght = prompt("How many characters? Choose between 8 and 128.");
 
     if (passwordLenght === null || passwordLenght === "" || isNaN(passwordLenght)) {
@@ -17,9 +18,27 @@ var generatePassword = function() {
     }
 
     var caseSensitive = confirm("Does your password needs both a UPPER case and a lower case letter?");
-    var critNumbers = confirm("Does your password needs numbers?");
-    var critSpecial = confirm("Does your password needs an special character?");
+    if (caseSensitive) {
+        chars = chars += upper;
+        console.log(chars);
+    } else {
+        console.log(chars);
+    }
 
+    var critNumbers = confirm("Does your password needs numbers?");
+    if (critNumbers) {
+        chars = chars += number;
+        console.log(chars);
+    } else {
+        console.log(chars);
+    }
+    var critSpecial = confirm("Does your password needs an special character?");
+    if (critSpecial) {
+        chars = chars += special;
+        console.log(chars);
+    } else {
+        console.log(chars);
+    }
 
 
     // for (let i = 0; i < passwordLenght; i++) {
