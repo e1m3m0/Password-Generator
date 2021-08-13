@@ -6,6 +6,7 @@ var special = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
 var chars = "";
 
 var generatePassword = function() {
+    var passwrd = "";
     chars = lower;
     var passwordLenght = prompt("How many characters? Choose between 8 and 128.");
 
@@ -41,14 +42,17 @@ var generatePassword = function() {
     }
 
 
-    // for (let i = 0; i < passwordLenght; i++) {
-    //   var c = Math.floor(Math.random()*
-    //   const element = array[i];
+    for (var i = 0; i < passwordLenght; i++) {
+        console.log(chars.length);
+        passwrd += chars.charAt(Math.floor(Math.random() * chars.length));
+        console.log(passwrd);
 
-    // }
 
+    }
+    console.log(passwrd);
+    return passwrd;
 
-}
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
