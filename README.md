@@ -10,4 +10,10 @@
 - WHEN the password is generated. THEN the password is either displayed in an alert or written to the page.
 
 ## Work completed
-- 
+- Create variables to hold the different character sets to match to the criteria selected with the function to generate the password.
+- Prompt user to input the character lenght desired for their password.
+- Set the function to provide feedback based on the user's response.
+- Created conditional under each criteria prompt to allow function to call the correct character set.
+- Accounted for user inputing the incorrect character or response.
+- If user did not select at least one of the criterias, restarted function.
+
