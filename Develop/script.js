@@ -1,57 +1,84 @@
 // Assignment code here
-var lower = "abcdefghijklmnopqrstuvwxyz";
-var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var number = "0123456789";
-var special = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
-var chars = "";
 
+
+// generatePassword function
 var generatePassword = function() {
+
+    // variable for generatePassword function
+    var lower = "abcdefghijklmnopqrstuvwxyz";
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var number = "0123456789";
+    var special = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+    var chars = "";
     var passwrd = "";
-    chars = lower;
-    var passwordLenght = prompt("How many characters? Choose between 8 and 128.");
+
+    // Questions to determine criteria
+    // Password length prompt
+    var passwordLenght = prompt("How many characters? Choose between 8 and 128 then click OK.");
 
     if (passwordLenght === null || passwordLenght === "" || isNaN(passwordLenght)) {
-        window.alert("It needs to be a number between 8 and 128, please try again!");
+        alert("It needs to be a number between 8 and 128, please try again!");
         return generatePassword();
     } else if (passwordLenght > 128 || passwordLenght < 8) {
-        window.alert("Between 8 and 128, please try again!");
+        alert("Between 8 and 128, please try again!");
         return generatePassword();
     }
 
-    var caseSensitive = confirm("Does your password needs both a UPPER case and a lower case letter?");
-    if (caseSensitive) {
-        chars = chars += upper;
-        console.log(chars);
+    // Determines if lower case letters need to be included
+    var caseLower = confirm("Does your password needs lower case letter? Click 'OK' to confirm and 'Cancel' to decline.");
+
+    if (caseLower) {
+        chars = lower;
+        alert("Your password will include lower case letters.");
     } else {
-        console.log(chars);
+        alert("Understand, no lower case letters.");
     }
 
-    var critNumbers = confirm("Does your password needs numbers?");
+    // Determines if upper case letters need to be included
+    var caseUpper = confirm("Does your password needs UPPER case letters? Click 'OK' to confirm and 'Cancel' to decline.");
+
+    if (caseUpper) {
+        chars = chars += upper;
+        alert("Your password will include UPPER case letters. Click 'OK' to confirm and 'Cancel' to decline.");
+    } else {
+        alert("As you wish no UPPER case letters.");
+    }
+
+    // Determines if numbers need to be included
+    var critNumbers = confirm("Does your password needs numbers? Click 'OK' to confirm and 'Cancel' to decline.");
+
     if (critNumbers) {
         chars = chars += number;
-        console.log(chars);
+        alert("It will also include numbers");
     } else {
-        console.log(chars);
+        alert("I get it, I will not include numbers.");
     }
+
+    // Determines if special characters need to be included
     var critSpecial = confirm("Does your password needs an special character?");
+
     if (critSpecial) {
         chars = chars += special;
-        console.log(chars);
+        alert("Ultimately, we will add special characters.");
+        alert("Thank you for choosing this Password Generator. Click OK to see your password!");
     } else {
-        console.log(chars);
+        alert("Ok, no special charaters then.");
+        while (!caseLower && !caseUpper && !critNumbers && !critSpecial) {
+            alert("Wait!!! You did not select at least one criteria for the password. Lets take you back to the begining.");
+            return generatePassword();
+        }
+        alert("Thank you for choosing this Password Generator. Click OK to see your password!");
     }
 
 
+
+    // for loop to generate random characters base on prompts and confirms above
     for (var i = 0; i < passwordLenght; i++) {
-        console.log(chars.length);
         passwrd += chars.charAt(Math.floor(Math.random() * chars.length));
-        console.log(passwrd);
-
-
     }
-    console.log(passwrd);
-    return passwrd;
 
+    // Returns password generated to function
+    return passwrd;
 };
 
 // Get references to the #generate element
