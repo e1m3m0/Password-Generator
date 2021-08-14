@@ -14,7 +14,7 @@ var generatePassword = function() {
 
     // Questions to determine criteria
     // Password length prompt
-    var passwordLenght = prompt("How many characters? Choose between 8 and 128 then click OK.");
+    var passwordLenght = prompt("How long does your password needs to be? Choose a number between 8 and 128 then click OK.");
 
     if (passwordLenght === null || passwordLenght === "" || isNaN(passwordLenght)) {
         alert("It needs to be a number between 8 and 128, please try again!");
@@ -25,27 +25,27 @@ var generatePassword = function() {
     }
 
     // Determines if lower case letters need to be included
-    var caseLower = confirm("Does your password needs lower case letter? Click 'OK' to confirm and 'Cancel' to decline.");
+    var caseLower = confirm("Does your password need lower case letters? Click 'OK' to confirm and 'Cancel' to decline.");
 
     if (caseLower) {
         chars = lower;
         alert("Your password will include lower case letters.");
     } else {
-        alert("Understand, no lower case letters.");
+        alert("Understand!, no lower case letters.");
     }
 
     // Determines if upper case letters need to be included
-    var caseUpper = confirm("Does your password needs UPPER case letters? Click 'OK' to confirm and 'Cancel' to decline.");
+    var caseUpper = confirm("Does your password need UPPER case letters? Click 'OK' to confirm and 'Cancel' to decline.");
 
     if (caseUpper) {
         chars = chars += upper;
         alert("Your password will include UPPER case letters. Click 'OK' to confirm and 'Cancel' to decline.");
     } else {
-        alert("As you wish no UPPER case letters.");
+        alert("As you wish, no UPPER case letters.");
     }
 
     // Determines if numbers need to be included
-    var critNumbers = confirm("Does your password needs numbers? Click 'OK' to confirm and 'Cancel' to decline.");
+    var critNumbers = confirm("Does your password need numbers? Click 'OK' to confirm and 'Cancel' to decline.");
 
     if (critNumbers) {
         chars = chars += number;
@@ -55,19 +55,19 @@ var generatePassword = function() {
     }
 
     // Determines if special characters need to be included
-    var critSpecial = confirm("Does your password needs an special character?");
+    var critSpecial = confirm("Does your password need special characters? Click 'OK' to confirm and 'Cancel' to decline.");
 
     if (critSpecial) {
         chars = chars += special;
-        alert("Ultimately, we will add special characters.");
-        alert("Thank you for choosing this Password Generator. Click OK to see your password!");
+        alert("Absolutely, It will have special characters.");
+        alert("TA-DA! Thank you for choosing this Password Generator. Now click OK to see your password!");
     } else {
-        alert("Ok, no special charaters then.");
+        alert("I suppose, no special charaters then.");
         while (!caseLower && !caseUpper && !critNumbers && !critSpecial) {
             alert("Wait!!! You did not select at least one criteria for the password. Lets take you back to the begining.");
             return generatePassword();
         }
-        alert("Thank you for choosing this Password Generator. Click OK to see your password!");
+        alert("Voila! Thank you for choosing this Password Generator. Now click OK to see your password!");
     }
 
 
