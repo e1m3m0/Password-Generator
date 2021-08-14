@@ -39,7 +39,7 @@ var generatePassword = function() {
 
     if (caseUpper) {
         chars = chars += upper;
-        alert("Your password will include UPPER case letters. Click 'OK' to confirm and 'Cancel' to decline.");
+        alert("Your password will include UPPER case letters.");
     } else {
         alert("As you wish, no UPPER case letters.");
     }
